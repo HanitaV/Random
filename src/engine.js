@@ -10,3 +10,18 @@ export function createRouletteStrip(pool,winnerId,targetIndex=54,length=62){cons
 export function recoverSpin(data){const pending=data.pendingSpin;if(!pending)return data;if(['choosing-male','awaiting-female'].includes(pending.status))return {...data,pendingSpin:{...pending,status:'awaiting-female'}};return commit(data,pending)}
 
 export function clearParticipants(data){return {...data,participants:[],results:[],forcedPairs:{},pendingSpin:null}}
+
+export function resolveEventPair(data,{previewOnly=false}={}){
+  if(previewOnly||data.settings.mode==='random')return resolveRandomPair(data,{previewOnly});
+  const unmatchedMales=data.participants.filter(p=>p.gender==='male'&&!data.results.some(r=>r.maleId===p.id));
+  const females=data.participants.filter(p=>p.gender==='female'&&!data.results.some(r=>r.femaleId===p.id));
+  const reserved=new Set(Object.entries(data.forcedPairs).filter(([id])=>unmatchedMales.some(p=>p.id===id)).map(([,id])=>id));
+  const males=unmatchedMales.filter(m=>{
+    const assigned=data.forcedPairs[m.id];
+    if(assigned)return females.some(f=>f.id===assigned);
+    return data.settings.mode==='mixed'&&females.some(f=>!reserved.has(f.id));
+  });
+  if(!males.length)throw Error(data.settings.mode==='preset'?'Không còn cặp thiết lập sẵn khả dụng. Hãy thiết lập cặp hoặc chuyển sang Mixed / Random.':'Không còn cặp khả dụng. Hãy kiểm tra danh sách và các cặp thiết lập.');
+  const male=males[randomIndex(males.length)];
+  return {...resolveWinner(data,male.id),male};
+}
