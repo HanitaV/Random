@@ -12,10 +12,12 @@ Design variance: 5. Decorative motion: 3. Visual density: 4. Native CSS is the s
 
 Prompt:
 
-> Use case: product-mockup. Asset type: square website hero photograph for LOVE CASE, a Vietnamese Women's Day gift pairing event. One closed brushed silver aluminum gift case with rounded corners, a small handle and two practical clasps, loosely tied with a deep rose pink satin ribbon. A single pink carnation lies beside it. Honest editorial still-life photography, tangible brushed metal, fabric weave, slightly imperfect ribbon, soft natural window light from left, subtle grounded shadow. Seamless cool light gray backdrop, spacious composition with the case centered filling 70 percent of width, camera three-quarter front angle, photograph not 3D illustration. No words, no letters, no logo, no hearts drawn on case, no floating objects, no glitter, no neon, no gradients, no watermark. 1024 square.
+> Use case: product-mockup. Asset type: square website hero photograph for LOVE CASE, a Vietnamese gift pairing event. One closed brushed silver aluminum gift case with rounded corners, a small handle and two practical clasps, loosely tied with a deep rose pink satin ribbon. A single pink carnation lies beside it. Honest editorial still-life photography, tangible brushed metal, fabric weave, slightly imperfect ribbon, soft natural window light from left, subtle grounded shadow. Seamless cool light gray backdrop, spacious composition with the case centered filling 70 percent of width, camera three-quarter front angle, photograph not 3D illustration. No words, no letters, no logo, no hearts drawn on case, no floating objects, no glitter, no neon, no gradients, no watermark. 1024 square.
 
 ## Verification
 
 The existing 26 behavior tests pass, TypeScript checks pass, and the production build succeeds. Tested shared text and button color combinations exceed 4.5:1 contrast. Roulette card widths and the 16px strip gap remain consistent with the landing calculation. Mobile layout rules collapse at 767px; fullscreen retains its larger roulette geometry.
 
 No browser was connected in this session, so rendered visual QA, Lighthouse, and interactive desktop/mobile verification remain unperformed.
+
+The attendance CSV importer follows the existing silver/rose system, with a labeled file control, validation, counts, and a scrollable preview table. Seasonal date copy has been replaced with general connection and gift wording.
