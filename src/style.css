@@ -378,6 +378,7 @@ footer small { display: none; }
 :fullscreen .roulette-card { width: 245px; height: 340px; }
 
 .csv-import { max-width: 1000px; }
+.roster-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
 .csv-intro { color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
 .csv-upload { display: grid; justify-items: center; gap: 12px; padding: 30px 20px; border: 1px dashed var(--muted); border-radius: 8px; text-align: center; cursor: pointer; }
 .csv-upload:focus-within { outline: 2px solid var(--accent); outline-offset: 4px; }
